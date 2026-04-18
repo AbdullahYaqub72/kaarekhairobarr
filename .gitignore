@@ -1,0 +1,18 @@
+.DS_Store
+
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/.next/
+frontend/.next_backup_*/
+frontend/tsconfig.tsbuildinfo
+
+# Frontend local environment
+frontend/.env.local
+frontend/.env*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
