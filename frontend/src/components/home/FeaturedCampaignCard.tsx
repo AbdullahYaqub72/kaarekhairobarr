@@ -29,7 +29,7 @@ export default function FeaturedCampaignCard({ campaign }: FeaturedCampaignCardP
   return (
     <article
       className={clsx(
-        'surface-panel group relative overflow-hidden bg-gradient-to-br p-6 transition duration-300 hover:-translate-y-1',
+        'surface-panel group relative overflow-hidden bg-gradient-to-br p-5 sm:p-6 transition duration-300 hover:-translate-y-1',
         accentStyles[campaign.accent]
       )}
     >
@@ -43,7 +43,7 @@ export default function FeaturedCampaignCard({ campaign }: FeaturedCampaignCardP
       </div>
 
       <div className="mt-6 space-y-4">
-        <h3 className="font-display text-3xl font-semibold tracking-[-0.03em] text-ink-900">
+        <h3 className="font-display text-[2rem] font-semibold tracking-[-0.03em] text-ink-900 sm:text-3xl">
           {campaign.title}
         </h3>
         <p className="text-sm leading-7 text-ink-600">{campaign.shortDescription}</p>

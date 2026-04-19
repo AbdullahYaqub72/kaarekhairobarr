@@ -4,8 +4,8 @@
 
 :root {
   color-scheme: light;
-  --font-sans: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-sans: "Avenir Next", "Optima", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Baskerville", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --font-urdu: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Geeza Pro", serif;
 }
 
@@ -21,6 +21,7 @@
   body {
     @apply bg-cream-50 font-sans text-ink-900 antialiased;
     min-height: 100vh;
+    line-height: 1.55;
     background-image:
       radial-gradient(circle at top left, rgba(212, 165, 98, 0.26), transparent 38%),
       radial-gradient(circle at 85% 0%, rgba(44, 139, 81, 0.18), transparent 26%),
@@ -43,7 +44,7 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-[0.92rem] font-semibold transition duration-300 sm:px-5 sm:py-3 sm:text-sm;
   }
 
   .btn-primary {
@@ -62,17 +63,17 @@
   }
 
   .surface-panel {
-    @apply rounded-[28px] border shadow-card-glow backdrop-blur-xl;
+    @apply rounded-[24px] border shadow-card-glow backdrop-blur-xl sm:rounded-[28px];
     border-color: rgb(255 255 255 / 0.65);
     background-color: rgb(255 255 255 / 0.72);
   }
 
   .section-shell {
-    @apply py-16 sm:py-20;
+    @apply py-10 sm:py-20;
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full bg-forest-50 px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-forest-700;
+    @apply inline-flex items-center gap-2 rounded-full bg-forest-50 px-3 py-1 text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-forest-700 sm:text-[0.72rem] sm:tracking-[0.24em];
   }
 
   .label {
@@ -80,7 +81,7 @@
   }
 
   .field {
-    @apply w-full rounded-3xl border bg-white px-4 py-3 text-sm text-ink-900 outline-none transition focus:border-forest-500 focus:ring-4 focus:ring-forest-100;
+    @apply w-full rounded-3xl border bg-white px-4 py-3 text-[0.95rem] text-ink-900 outline-none transition focus:border-forest-500 focus:ring-4 focus:ring-forest-100 sm:text-sm;
     border-color: rgb(15 25 23 / 0.1);
   }
 

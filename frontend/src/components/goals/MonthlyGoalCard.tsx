@@ -28,7 +28,7 @@ export default function MonthlyGoalCard({
   return (
     <article
       className={clsx(
-        'surface-panel overflow-hidden bg-gradient-to-br p-6',
+        'surface-panel overflow-hidden bg-gradient-to-br p-5 sm:p-6',
         statusPanelClasses[goal.status]
       )}
     >
@@ -55,7 +55,7 @@ export default function MonthlyGoalCard({
       </div>
 
       <div className="mt-5 space-y-3">
-        <h3 className="font-display text-3xl font-semibold tracking-[-0.03em] text-ink-900">
+        <h3 className="font-display text-[2rem] font-semibold tracking-[-0.03em] text-ink-900 sm:text-3xl">
           {goal.title}
         </h3>
         <p className="text-sm leading-7 text-ink-600">{goal.purpose}</p>

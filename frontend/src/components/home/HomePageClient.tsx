@@ -98,28 +98,32 @@ export default function HomePageClient() {
   const { site, campaigns, events, testimonials } = content
   const leadCampaign = campaigns[0]
   const leadEvent = events[0]
+  const visibleCampaigns = campaigns.slice(0, 3)
+  const visibleEvents = events.slice(0, 3)
+  const visibleTestimonials = testimonials.slice(0, 3)
+  const visibleMonthlyGoals = monthlyGoals.slice(0, 3)
   const currentMonthTarget = monthlyGoals.reduce((sum, goal) => sum + goal.targetAmount, 0)
   const currentMonthRaised = monthlyGoals.reduce((sum, goal) => sum + goal.raisedAmount, 0)
   const currentMonthRemaining = monthlyGoals.reduce((sum, goal) => sum + goal.remainingAmount, 0)
 
   return (
     <div className="pb-10">
-      <section id="top" className="section-shell relative overflow-hidden pt-10 sm:pt-14 lg:pt-20">
+      <section id="top" className="section-shell relative overflow-hidden pt-8 sm:pt-14 lg:pt-20">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-mesh-radial opacity-90" />
         <div className="pointer-events-none absolute -right-16 top-40 h-72 w-72 rounded-full bg-clay-200/30 blur-3xl" />
         <div className="pointer-events-none absolute left-0 top-52 h-64 w-64 rounded-full bg-forest-200/30 blur-3xl" />
 
-        <div className="container-custom relative z-10 mb-12">
+        <div className="container-custom relative z-10 mb-10 sm:mb-12">
           <div className="mx-auto flex max-w-4xl animate-fade-up flex-col items-center text-center">
             <span className="eyebrow bg-white/85 text-ink-700">{BRAND_LOCATION}</span>
             <BrandLogo size="lg" className="mt-6" priority />
-            <p className="mt-6 text-sm uppercase tracking-[0.34em] text-ink-500">
+            <p className="mt-5 px-2 text-[0.68rem] uppercase tracking-[0.24em] text-ink-500 sm:mt-6 sm:text-sm sm:tracking-[0.34em]">
               {BRAND_SHORT_CONTEXT}
             </p>
             <h2
               lang="ur"
               dir="rtl"
-              className="urdu-display mt-4 text-center text-4xl font-semibold tracking-tight text-ink-900 sm:text-5xl lg:text-6xl"
+              className="urdu-display mt-4 text-center text-3xl font-semibold tracking-tight text-ink-900 sm:text-5xl lg:text-6xl"
             >
               {BRAND_SLOGAN}
             </h2>
@@ -128,21 +132,21 @@ export default function HomePageClient() {
 
         <div className="container-custom relative z-10 grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
           <div className="animate-fade-up">
-            <div className="mb-6 flex flex-wrap items-center gap-3">
+            <div className="mb-5 flex flex-wrap items-center gap-3 sm:mb-6">
               <span className="eyebrow">
                 <Sparkles className="h-4 w-4" />
                 {site.badge}
               </span>
             </div>
 
-            <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[0.93] tracking-[-0.045em] text-ink-900 sm:text-6xl lg:text-[5.4rem]">
+            <h1 className="max-w-4xl font-display text-[2.3rem] font-semibold leading-[0.98] tracking-[-0.035em] text-ink-900 sm:text-6xl sm:leading-[0.93] sm:tracking-[-0.045em] lg:text-[5.4rem]">
               {site.heroTitle}
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-ink-600 sm:text-lg">
+            <p className="mt-4 max-w-2xl text-[0.96rem] leading-7 text-ink-600 sm:mt-6 sm:text-lg sm:leading-8">
               {site.heroSubtitle}
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
               <Link href="/#support" className="btn-primary">
                 Start Supporting
                 <ArrowRight className="h-4 w-4" />
@@ -152,7 +156,7 @@ export default function HomePageClient() {
               </Link>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-5 text-sm text-ink-600">
+            <div className="mt-6 flex flex-col items-start gap-2.5 text-sm text-ink-600 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-5">
               <span className="flex items-center gap-2">
                 <HeartHandshake className="h-4 w-4 text-forest-700" />
                 Human-centered giving
@@ -169,28 +173,28 @@ export default function HomePageClient() {
           </div>
 
           <div className="animate-fade-up lg:pl-8">
-            <div className="surface-panel relative overflow-hidden p-6 sm:p-8">
+            <div className="surface-panel relative overflow-hidden p-5 sm:p-8">
               <div className="absolute inset-0 bg-gradient-to-br from-forest-100/40 via-white to-cream-100/40" />
               <div className="relative">
                 <span className="eyebrow bg-white/85 text-clay-700">Current Focus</span>
-                <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-ink-900">
+                <h2 className="mt-4 font-display text-[1.95rem] font-semibold tracking-[-0.03em] text-ink-900 sm:mt-5 sm:text-4xl sm:tracking-[-0.04em]">
                   {leadCampaign.title}
                 </h2>
-                <p className="mt-3 text-sm leading-7 text-ink-600">
+                <p className="mt-3 text-sm leading-6 text-ink-600 sm:leading-7">
                   {leadCampaign.shortDescription}
                 </p>
 
                 <div className="mt-6 rounded-[24px] bg-ink-900 p-5 text-cream-50">
-                  <div className="flex items-end justify-between gap-4">
+                  <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
                     <div>
                       <p className="text-xs uppercase tracking-[0.22em] text-cream-100/60">
                         Raised so far
                       </p>
-                      <p className="mt-3 font-display text-4xl font-semibold">
+                      <p className="mt-3 break-words font-display text-[2.15rem] font-semibold leading-none sm:text-4xl">
                         {formatCurrency(leadCampaign.raisedAmount)}
                       </p>
                     </div>
-                    <div className="text-right">
+                    <div className="sm:text-right">
                       <p className="text-xs uppercase tracking-[0.22em] text-cream-100/60">
                         Goal
                       </p>
@@ -215,7 +219,7 @@ export default function HomePageClient() {
                     </p>
                     <p className="mt-2 text-sm leading-7 text-ink-600">{leadEvent.title}</p>
                   </div>
-                  <div className="rounded-[24px] bg-cream-50 p-4">
+                  <div className="hidden rounded-[24px] bg-cream-50 p-4 sm:block">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay-700">
                       What this rebuild adds
                     </p>
@@ -230,7 +234,7 @@ export default function HomePageClient() {
           </div>
         </div>
 
-        <div className="container-custom relative z-10 mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="container-custom relative z-10 mt-8 grid gap-3 sm:mt-10 sm:gap-5 md:grid-cols-2 xl:grid-cols-4">
           {site.statCards.map((stat, index) => (
             <ImpactMetricCard
               key={`${stat.label}-${index}`}
@@ -256,27 +260,27 @@ export default function HomePageClient() {
           </div>
 
           <div className="mt-10 grid gap-4 md:grid-cols-3">
-            <div className="surface-panel p-6">
+            <div className="surface-panel p-5 sm:p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-ink-500">
                 {getCurrentMonthLabel()}
               </p>
-              <p className="mt-4 font-display text-4xl font-semibold text-ink-900">
+              <p className="mt-4 break-words font-display text-[2.2rem] font-semibold leading-none text-ink-900 sm:text-4xl">
                 {formatCompactCurrency(currentMonthTarget)}
               </p>
               <p className="mt-3 text-sm leading-7 text-ink-600">Combined target for this month.</p>
             </div>
-            <div className="surface-panel p-6">
+            <div className="surface-panel p-5 sm:p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-ink-500">Collected so far</p>
-              <p className="mt-4 font-display text-4xl font-semibold text-ink-900">
+              <p className="mt-4 break-words font-display text-[2.2rem] font-semibold leading-none text-ink-900 sm:text-4xl">
                 {formatCompactCurrency(currentMonthRaised)}
               </p>
               <p className="mt-3 text-sm leading-7 text-ink-600">
                 Live raised amount across current month goals.
               </p>
             </div>
-            <div className="surface-panel p-6">
+            <div className="surface-panel p-5 sm:p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-ink-500">Still left</p>
-              <p className="mt-4 font-display text-4xl font-semibold text-ink-900">
+              <p className="mt-4 break-words font-display text-[2.2rem] font-semibold leading-none text-ink-900 sm:text-4xl">
                 {formatCompactCurrency(currentMonthRemaining)}
               </p>
               <p className="mt-3 text-sm leading-7 text-ink-600">
@@ -288,9 +292,11 @@ export default function HomePageClient() {
           {isLoading ? (
             <div className="mt-8 surface-panel p-8 text-sm text-ink-600">Loading current month goals...</div>
           ) : monthlyGoals.length > 0 ? (
-            <div className="mt-8 grid gap-6 xl:grid-cols-3">
-              {monthlyGoals.map((goal) => (
-                <MonthlyGoalCard key={goal.id} goal={goal} />
+            <div className="mt-8 grid gap-5 xl:grid-cols-3">
+              {visibleMonthlyGoals.map((goal, index) => (
+                <div key={goal.id} className={index > 1 ? 'hidden xl:block' : ''}>
+                  <MonthlyGoalCard goal={goal} />
+                </div>
               ))}
             </div>
           ) : (
@@ -318,9 +324,11 @@ export default function HomePageClient() {
             description="Each card highlights the funding goal, current momentum, and the real-world outcome attached to the next donation."
           />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {campaigns.map((campaign) => (
-              <FeaturedCampaignCard key={campaign.id} campaign={campaign} />
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {visibleCampaigns.map((campaign, index) => (
+              <div key={campaign.id} className={index > 1 ? 'hidden lg:block' : ''}>
+                <FeaturedCampaignCard campaign={campaign} />
+              </div>
             ))}
           </div>
         </div>
@@ -329,9 +337,9 @@ export default function HomePageClient() {
       <section id="process" className="section-shell">
         <div className="container-custom">
           <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="surface-panel bg-ink-900 p-8 text-cream-50">
+            <div className="surface-panel bg-ink-900 p-6 sm:p-8 text-cream-50">
               <span className="eyebrow bg-white/10 text-cream-50">How We Work</span>
-              <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em]">
+              <h2 className="mt-5 font-display text-[2.2rem] font-semibold tracking-[-0.035em] sm:text-4xl sm:tracking-[-0.04em]">
                 Better experience, same mission.
               </h2>
               <p className="mt-5 text-sm leading-8 text-cream-100/78">{site.mission}</p>
@@ -350,11 +358,11 @@ export default function HomePageClient() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               {site.principles.map((principle) => (
-                <article key={principle.title} className="surface-panel p-6">
+                <article key={principle.title} className="surface-panel p-5 sm:p-6">
                   <span className="rounded-full bg-cream-100 px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-clay-700">
                     {principle.tag}
                   </span>
-                  <h3 className="mt-5 font-display text-3xl font-semibold tracking-[-0.03em] text-ink-900">
+                  <h3 className="mt-5 font-display text-[2rem] font-semibold tracking-[-0.03em] text-ink-900 sm:text-3xl">
                     {principle.title}
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-ink-600">
@@ -363,18 +371,18 @@ export default function HomePageClient() {
                 </article>
               ))}
 
-              <article className="surface-panel p-6 sm:col-span-2">
+              <article className="surface-panel p-5 sm:col-span-2 sm:p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-500">
                   Relief Flow
                 </p>
                 <div className="mt-5 grid gap-4 lg:grid-cols-3">
                   {deliverySteps.map((item, index) => (
-                    <div key={item.step} className="rounded-[24px] bg-cream-50 p-5">
+                    <div key={item.step} className="rounded-[24px] bg-cream-50 p-4 sm:p-5">
                       <div className="flex items-center gap-3">
                         <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink-900 text-sm font-semibold text-cream-50">
                           {index + 1}
                         </span>
-                        <h3 className="font-display text-2xl font-semibold text-ink-900">
+                        <h3 className="font-display text-xl font-semibold text-ink-900 sm:text-2xl">
                           {item.step}
                         </h3>
                       </div>
@@ -398,17 +406,19 @@ export default function HomePageClient() {
                 description="This section gives the site a sense of movement and helps supporters understand when field activity is happening next."
               />
 
-              <div className="mt-10 space-y-5">
-                {events.map((event) => (
-                  <EventTimelineCard key={event.id} event={event} />
+              <div className="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
+                {visibleEvents.map((event, index) => (
+                  <div key={event.id} className={index > 1 ? 'hidden lg:block' : ''}>
+                    <EventTimelineCard event={event} />
+                  </div>
                 ))}
               </div>
             </div>
 
             <div className="space-y-5 lg:pt-20">
-              <div className="surface-panel p-8">
+              <div className="surface-panel p-6 sm:p-8">
                 <span className="eyebrow bg-forest-50">Why This Helps</span>
-                <h3 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-ink-900">
+                <h3 className="mt-5 font-display text-[2.2rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-4xl sm:tracking-[-0.04em]">
                   Donors trust momentum they can see.
                 </h3>
                 <p className="mt-4 text-sm leading-8 text-ink-600">
@@ -417,11 +427,11 @@ export default function HomePageClient() {
                 </p>
               </div>
 
-              <div className="surface-panel bg-gradient-to-br from-clay-100/70 via-white to-cream-50 p-8">
+              <div className="surface-panel bg-gradient-to-br from-clay-100/70 via-white to-cream-50 p-6 sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay-700">
                   Next stop
                 </p>
-                <h3 className="mt-4 font-display text-3xl font-semibold tracking-[-0.04em] text-ink-900">
+                <h3 className="mt-4 font-display text-[2rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-3xl sm:tracking-[-0.04em]">
                   {leadEvent.title}
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-ink-600">{leadEvent.description}</p>
@@ -446,9 +456,11 @@ export default function HomePageClient() {
             align="center"
           />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+          <div className="mt-8 grid gap-5 lg:grid-cols-3 sm:mt-10">
+            {visibleTestimonials.map((testimonial, index) => (
+              <div key={testimonial.id} className={index > 1 ? 'hidden lg:block' : ''}>
+                <TestimonialCard testimonial={testimonial} />
+              </div>
             ))}
           </div>
         </div>
@@ -457,7 +469,7 @@ export default function HomePageClient() {
       <section id="support" className="section-shell">
         <div className="container-custom">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="surface-panel bg-gradient-to-br from-white via-cream-50 to-forest-50 p-8 sm:p-10">
+            <div className="surface-panel bg-gradient-to-br from-white via-cream-50 to-forest-50 p-6 sm:p-10">
               <SectionHeading
                 eyebrow="Support Request"
                 title="Share support interest directly with the team."
@@ -470,11 +482,11 @@ export default function HomePageClient() {
             </div>
 
             <div className="space-y-6">
-              <div className="surface-panel p-8">
+              <div className="surface-panel p-6 sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-500">
                   Contact
                 </p>
-                <h3 className="mt-4 font-display text-3xl font-semibold tracking-[-0.04em] text-ink-900">
+                <h3 className="mt-4 font-display text-[2rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-3xl sm:tracking-[-0.04em]">
                   Keep the next step easy.
                 </h3>
                 <div className="mt-6 grid gap-4 text-sm leading-7 text-ink-600">
@@ -511,7 +523,7 @@ export default function HomePageClient() {
                 </div>
               </div>
 
-              <div className="surface-panel bg-ink-900 p-8 text-cream-50">
+              <div className="surface-panel bg-ink-900 p-6 sm:p-8 text-cream-50">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cream-100/60">
                   What This Upgrade Unlocks
                 </p>
@@ -522,7 +534,7 @@ export default function HomePageClient() {
                 </div>
               </div>
 
-              <div className="surface-panel p-8">
+              <div className="surface-panel p-6 sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay-700">
                   Suggested next move
                 </p>

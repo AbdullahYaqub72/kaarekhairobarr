@@ -98,7 +98,7 @@ export default function StatisticsPageClient() {
 
   return (
     <div className="pb-12">
-      <section className="section-shell relative overflow-hidden pt-10 sm:pt-14">
+      <section className="section-shell relative overflow-hidden pt-8 sm:pt-14">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-mesh-radial opacity-90" />
 
         <div className="container-custom relative z-10">
@@ -107,7 +107,7 @@ export default function StatisticsPageClient() {
               <BarChart3 className="h-4 w-4" />
               Statistics
             </span>
-            <h1 className="mt-6 font-display text-5xl font-semibold leading-[0.94] tracking-[-0.05em] text-ink-900 sm:text-6xl">
+            <h1 className="mt-6 font-display text-[2.7rem] font-semibold leading-[0.96] tracking-[-0.04em] text-ink-900 sm:text-6xl sm:leading-[0.94] sm:tracking-[-0.05em]">
               Monthly, yearly, and category-level performance in one place.
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-ink-600 sm:text-lg">
@@ -116,14 +116,14 @@ export default function StatisticsPageClient() {
             </p>
           </div>
 
-          <div className="mt-10 surface-panel p-6 sm:p-8">
+          <div className="mt-10 surface-panel p-5 sm:p-8">
             <div className="flex flex-wrap items-start justify-between gap-5">
               <div>
                 <span className="eyebrow bg-forest-50 text-forest-700">
                   <Filter className="h-4 w-4" />
                   Filter Scope
                 </span>
-                <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-ink-900">
+                <h2 className="mt-5 font-display text-[2.1rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-4xl sm:tracking-[-0.04em]">
                   {scopeLabel}
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-7 text-ink-600">
@@ -181,27 +181,27 @@ export default function StatisticsPageClient() {
           </div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            <div className="surface-panel p-6">
+            <div className="surface-panel p-5 sm:p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-ink-500">Target in scope</p>
-              <p className="mt-4 font-display text-4xl font-semibold text-ink-900">
+              <p className="mt-4 break-words font-display text-[2.1rem] font-semibold leading-none text-ink-900 sm:text-4xl">
                 {formatCompactCurrency(filteredTarget)}
               </p>
             </div>
-            <div className="surface-panel p-6">
+            <div className="surface-panel p-5 sm:p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-ink-500">Raised in scope</p>
-              <p className="mt-4 font-display text-4xl font-semibold text-ink-900">
+              <p className="mt-4 break-words font-display text-[2.1rem] font-semibold leading-none text-ink-900 sm:text-4xl">
                 {formatCompactCurrency(filteredRaised)}
               </p>
             </div>
-            <div className="surface-panel p-6">
+            <div className="surface-panel p-5 sm:p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-ink-500">Remaining in scope</p>
-              <p className="mt-4 font-display text-4xl font-semibold text-ink-900">
+              <p className="mt-4 break-words font-display text-[2.1rem] font-semibold leading-none text-ink-900 sm:text-4xl">
                 {formatCompactCurrency(filteredRemaining)}
               </p>
             </div>
-            <div className="surface-panel p-6">
+            <div className="surface-panel p-5 sm:p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-ink-500">Completion rate</p>
-              <p className="mt-4 font-display text-4xl font-semibold text-ink-900">
+              <p className="mt-4 break-words font-display text-[2.1rem] font-semibold leading-none text-ink-900 sm:text-4xl">
                 {completionRate}%
               </p>
               <p className="mt-3 text-sm leading-7 text-ink-600">
@@ -211,14 +211,14 @@ export default function StatisticsPageClient() {
           </div>
 
           <div className="mt-8 grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
-            <div className="surface-panel p-8">
+            <div className="surface-panel p-5 sm:p-8">
               <SectionHeading
                 eyebrow="Monthly Trend"
                 title="How each month is pacing within the selected scope."
                 description="Targets, raised amounts, and remaining funding are rolled up month by month after the filters are applied."
               />
 
-              <div className="mt-8 h-[340px]">
+              <div className="mt-8 h-[280px] sm:h-[340px]">
                 {analytics.monthlyTrend.length > 0 ? (
                   <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={analytics.monthlyTrend}>
@@ -276,14 +276,14 @@ export default function StatisticsPageClient() {
               </div>
             </div>
 
-            <div className="surface-panel p-8">
+            <div className="surface-panel p-5 sm:p-8">
               <SectionHeading
                 eyebrow="Yearly Rollup"
                 title="A yearly comparison for the selected month or full-year view."
                 description="When a month is selected, this compares that month across years. Otherwise it shows full-year totals."
               />
 
-              <div className="mt-8 h-[340px]">
+              <div className="mt-8 h-[280px] sm:h-[340px]">
                 {analytics.yearlyTrend.length > 0 ? (
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={analytics.yearlyTrend} barGap={12}>
@@ -321,14 +321,14 @@ export default function StatisticsPageClient() {
           </div>
 
           <div className="mt-6 grid gap-6 xl:grid-cols-[1.06fr_0.94fr]">
-            <div className="surface-panel p-8">
+            <div className="surface-panel p-5 sm:p-8">
               <SectionHeading
                 eyebrow="Category Performance"
                 title="See how every category is performing in the selected view."
                 description="This compares target and raised amounts across all categories represented in the filtered dataset."
               />
 
-              <div className="mt-8 h-[360px]">
+              <div className="mt-8 h-[320px] sm:h-[360px]">
                 {analytics.categoryBreakdown.length > 0 ? (
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={analytics.categoryBreakdown} layout="vertical" barGap={10}>
@@ -370,14 +370,14 @@ export default function StatisticsPageClient() {
               </div>
             </div>
 
-            <div className="surface-panel p-8">
+            <div className="surface-panel p-5 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <span className="eyebrow bg-forest-50 text-forest-700">
                     <Layers3 className="h-4 w-4" />
                     Category Mix
                   </span>
-                  <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-ink-900">
+                  <h2 className="mt-5 font-display text-[2.1rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-4xl sm:tracking-[-0.04em]">
                     Target share by category
                   </h2>
                 </div>
@@ -386,7 +386,7 @@ export default function StatisticsPageClient() {
                 </div>
               </div>
 
-              <div className="mt-8 h-[280px]">
+              <div className="mt-8 h-[250px] sm:h-[280px]">
                 {categoryShareData.length > 0 ? (
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
@@ -440,7 +440,7 @@ export default function StatisticsPageClient() {
             </div>
           </div>
 
-          <div className="mt-6 surface-panel p-8">
+          <div className="mt-6 surface-panel p-5 sm:p-8">
             <SectionHeading
               eyebrow="Category Stats"
               title="A breakdown for every category in the selected scope."
@@ -450,9 +450,9 @@ export default function StatisticsPageClient() {
             {analytics.categoryBreakdown.length > 0 ? (
               <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
                 {analytics.categoryBreakdown.map((entry, index) => (
-                  <article key={entry.category} className="rounded-[24px] bg-white/78 p-5">
+                  <article key={entry.category} className="rounded-[24px] bg-white/78 p-4 sm:p-5">
                     <div className="flex items-start justify-between gap-3">
-                      <h3 className="font-display text-2xl font-semibold tracking-[-0.03em] text-ink-900">
+                      <h3 className="font-display text-xl font-semibold tracking-[-0.03em] text-ink-900 sm:text-2xl">
                         {entry.category}
                       </h3>
                       <span
@@ -501,7 +501,7 @@ export default function StatisticsPageClient() {
             )}
           </div>
 
-          <div className="mt-6 surface-panel p-8">
+          <div className="mt-6 surface-panel p-5 sm:p-8">
             <SectionHeading
               eyebrow="Goals In Scope"
               title="The actual records behind the graphs."

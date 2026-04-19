@@ -22,10 +22,12 @@ export default function SectionHeading({
     >
       <span className="eyebrow">{eyebrow}</span>
       <div className="space-y-3">
-        <h2 className="font-display text-4xl font-semibold tracking-[-0.03em] text-ink-900 sm:text-5xl">
+        <h2 className="font-display text-[2rem] font-semibold leading-[1.02] tracking-[-0.03em] text-ink-900 sm:text-5xl">
           {title}
         </h2>
-        <p className="max-w-3xl text-base leading-8 text-ink-600 sm:text-lg">{description}</p>
+        <p className="max-w-3xl text-[0.98rem] leading-7 text-ink-600 sm:text-lg sm:leading-8">
+          {description}
+        </p>
       </div>
     </div>
   )

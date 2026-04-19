@@ -13,7 +13,7 @@ export default function ImpactMetricCard({
   return (
     <article
       className={clsx(
-        'surface-panel h-full p-5 transition duration-300 hover:-translate-y-1',
+        'surface-panel h-full p-4 sm:p-5 transition duration-300 hover:-translate-y-1',
         highlighted && 'bg-ink-900 text-cream-50'
       )}
     >
@@ -27,7 +27,7 @@ export default function ImpactMetricCard({
       </p>
       <p
         className={clsx(
-          'mt-4 font-display text-4xl font-semibold leading-none',
+          'mt-4 font-display text-[2.2rem] font-semibold leading-none sm:text-4xl',
           highlighted ? 'text-cream-50' : 'text-ink-900'
         )}
       >

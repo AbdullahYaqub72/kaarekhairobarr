@@ -279,17 +279,17 @@ export default function GoalsPageClient() {
   if (accessState === 'login') {
     return (
       <div className="pb-12">
-        <section className="section-shell relative overflow-hidden pt-10 sm:pt-14">
+        <section className="section-shell relative overflow-hidden pt-8 sm:pt-14">
           <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-mesh-radial opacity-90" />
 
           <div className="container-custom relative z-10">
-            <div className="surface-panel mx-auto max-w-xl bg-gradient-to-br from-white via-cream-50 to-forest-50 p-8 sm:p-10">
+            <div className="surface-panel mx-auto max-w-xl bg-gradient-to-br from-white via-cream-50 to-forest-50 p-6 sm:p-10">
               <div className="text-center">
                 <span className="eyebrow bg-white/85 text-ink-700">
                   <LockKeyhole className="h-4 w-4" />
                   Admin Access
                 </span>
-                <h1 className="mt-6 font-display text-5xl font-semibold tracking-[-0.05em] text-ink-900">
+                <h1 className="mt-6 font-display text-[2.5rem] font-semibold tracking-[-0.04em] text-ink-900 sm:text-5xl sm:tracking-[-0.05em]">
                   Manage Campaigns, Goals, Events and Testimonials
                 </h1>
                 <p className="mt-4 text-sm leading-8 text-ink-600">
@@ -341,7 +341,7 @@ export default function GoalsPageClient() {
 
   return (
     <div className="pb-12">
-      <section className="section-shell relative overflow-hidden pt-10 sm:pt-14">
+      <section className="section-shell relative overflow-hidden pt-8 sm:pt-14">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-mesh-radial opacity-90" />
 
         <div className="container-custom relative z-10">
@@ -350,7 +350,7 @@ export default function GoalsPageClient() {
               <CalendarClock className="h-4 w-4" />
               Campaign, Goal, Event and Story Studio
             </span>
-            <h1 className="mt-6 font-display text-5xl font-semibold leading-[0.94] tracking-[-0.05em] text-ink-900 sm:text-6xl">
+            <h1 className="mt-6 font-display text-[2.7rem] font-semibold leading-[0.96] tracking-[-0.04em] text-ink-900 sm:text-6xl sm:leading-[0.94] sm:tracking-[-0.05em]">
               Manage public campaigns, monthly goals, event moments, and testimonials from one hidden control room.
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-ink-600 sm:text-lg">
@@ -360,7 +360,7 @@ export default function GoalsPageClient() {
           </div>
 
           <div className="mt-12 grid gap-6 xl:grid-cols-[0.92fr_1.08fr]">
-            <div className="surface-panel bg-gradient-to-br from-white via-cream-50 to-forest-50 p-8 sm:p-10">
+            <div className="surface-panel bg-gradient-to-br from-white via-cream-50 to-forest-50 p-6 sm:p-10">
               <SectionHeading
                 eyebrow="Campaign Form"
                 title={
@@ -385,14 +385,14 @@ export default function GoalsPageClient() {
             </div>
 
             <div className="space-y-6">
-              <div className="surface-panel overflow-hidden p-8">
+              <div className="surface-panel overflow-hidden p-6 sm:p-8">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
                     <span className="eyebrow bg-forest-50 text-forest-700">
                       <Sparkles className="h-4 w-4" />
                       Campaign Overview
                     </span>
-                    <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-ink-900">
+                    <h2 className="mt-5 font-display text-[2.1rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-4xl sm:tracking-[-0.04em]">
                       All saved campaigns at a glance
                     </h2>
                     <p className="mt-3 max-w-2xl text-sm leading-7 text-ink-600">
@@ -431,7 +431,7 @@ export default function GoalsPageClient() {
               </div>
 
               {isLoading ? (
-                <div className="surface-panel p-8 text-sm text-ink-600">
+              <div className="surface-panel p-6 sm:p-8 text-sm text-ink-600">
                   Loading campaigns...
                 </div>
               ) : campaigns.length > 0 ? (
@@ -471,11 +471,11 @@ export default function GoalsPageClient() {
                   ))}
                 </div>
               ) : (
-                <div className="surface-panel p-8">
+                <div className="surface-panel p-6 sm:p-8">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-500">
                     No campaigns yet
                   </p>
-                  <h3 className="mt-4 font-display text-3xl font-semibold tracking-[-0.04em] text-ink-900">
+                  <h3 className="mt-4 font-display text-[2rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-3xl sm:tracking-[-0.04em]">
                     Add the first campaign and it will be ready for the landing page.
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-ink-600">
@@ -488,7 +488,7 @@ export default function GoalsPageClient() {
           </div>
 
           <div className="mt-12 grid gap-6 xl:grid-cols-[0.92fr_1.08fr]">
-            <div className="surface-panel bg-gradient-to-br from-white via-cream-50 to-forest-50 p-8 sm:p-10">
+            <div className="surface-panel bg-gradient-to-br from-white via-cream-50 to-forest-50 p-6 sm:p-10">
               <SectionHeading
                 eyebrow="Goal Form"
                 title={editingGoal ? 'Edit an existing goal record.' : 'Input this month’s goal targets.'}
@@ -509,14 +509,14 @@ export default function GoalsPageClient() {
             </div>
 
             <div className="space-y-6">
-              <div className="surface-panel overflow-hidden p-8">
+              <div className="surface-panel overflow-hidden p-6 sm:p-8">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
                     <span className="eyebrow bg-forest-50 text-forest-700">
                       <Sparkles className="h-4 w-4" />
                       {getCurrentMonthLabel()}
                     </span>
-                    <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-ink-900">
+                    <h2 className="mt-5 font-display text-[2.1rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-4xl sm:tracking-[-0.04em]">
                       Current month goals at a glance
                     </h2>
                   </div>
@@ -564,7 +564,7 @@ export default function GoalsPageClient() {
               </div>
 
               {isLoading ? (
-                <div className="surface-panel p-8 text-sm text-ink-600">
+                <div className="surface-panel p-6 sm:p-8 text-sm text-ink-600">
                   Loading saved goals...
                 </div>
               ) : goals.length > 0 ? (
@@ -594,11 +594,11 @@ export default function GoalsPageClient() {
                   ))}
                 </div>
               ) : (
-                <div className="surface-panel p-8">
+                <div className="surface-panel p-6 sm:p-8">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-500">
                     No goals yet
                   </p>
-                  <h3 className="mt-4 font-display text-3xl font-semibold tracking-[-0.04em] text-ink-900">
+                  <h3 className="mt-4 font-display text-[2rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-3xl sm:tracking-[-0.04em]">
                     Start with the first goal for {getCurrentMonthLabel()}.
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-ink-600">
@@ -611,7 +611,7 @@ export default function GoalsPageClient() {
           </div>
 
           <div className="mt-8 grid gap-6 xl:grid-cols-[0.92fr_1.08fr]">
-            <div className="surface-panel bg-gradient-to-br from-white via-cream-50 to-clay-50 p-8 sm:p-10">
+            <div className="surface-panel bg-gradient-to-br from-white via-cream-50 to-clay-50 p-6 sm:p-10">
               <SectionHeading
                 eyebrow="Event Form"
                 title={
@@ -636,14 +636,14 @@ export default function GoalsPageClient() {
             </div>
 
             <div className="space-y-6">
-              <div className="surface-panel overflow-hidden p-8">
+              <div className="surface-panel overflow-hidden p-6 sm:p-8">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
                     <span className="eyebrow bg-cream-100 text-clay-700">
                       <Star className="h-4 w-4" />
                       Event Overview
                     </span>
-                    <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-ink-900">
+                    <h2 className="mt-5 font-display text-[2.1rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-4xl sm:tracking-[-0.04em]">
                       All saved events in one place
                     </h2>
                     <p className="mt-3 max-w-2xl text-sm leading-7 text-ink-600">
@@ -684,7 +684,7 @@ export default function GoalsPageClient() {
               </div>
 
               {isLoading ? (
-                <div className="surface-panel p-8 text-sm text-ink-600">Loading events...</div>
+                <div className="surface-panel p-6 sm:p-8 text-sm text-ink-600">Loading events...</div>
               ) : events.length > 0 ? (
                 <div className="grid gap-6">
                   {events.map((event) => (
@@ -712,11 +712,11 @@ export default function GoalsPageClient() {
                   ))}
                 </div>
               ) : (
-                <div className="surface-panel p-8">
+                <div className="surface-panel p-6 sm:p-8">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-500">
                     No events yet
                   </p>
-                  <h3 className="mt-4 font-display text-3xl font-semibold tracking-[-0.04em] text-ink-900">
+                  <h3 className="mt-4 font-display text-[2rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-3xl sm:tracking-[-0.04em]">
                     Add the first event and it will appear here immediately.
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-ink-600">
@@ -729,7 +729,7 @@ export default function GoalsPageClient() {
           </div>
 
           <div className="mt-8 grid gap-6 xl:grid-cols-[0.92fr_1.08fr]">
-            <div className="surface-panel bg-gradient-to-br from-white via-cream-50 to-forest-50 p-8 sm:p-10">
+            <div className="surface-panel bg-gradient-to-br from-white via-cream-50 to-forest-50 p-6 sm:p-10">
               <SectionHeading
                 eyebrow="Testimonial Form"
                 title={
@@ -754,14 +754,14 @@ export default function GoalsPageClient() {
             </div>
 
             <div className="space-y-6">
-              <div className="surface-panel overflow-hidden p-8">
+              <div className="surface-panel overflow-hidden p-6 sm:p-8">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
                     <span className="eyebrow bg-cream-100 text-clay-700">
                       <Star className="h-4 w-4" />
                       Story Overview
                     </span>
-                    <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.04em] text-ink-900">
+                    <h2 className="mt-5 font-display text-[2.1rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-4xl sm:tracking-[-0.04em]">
                       All saved testimonials in one place
                     </h2>
                     <p className="mt-3 max-w-2xl text-sm leading-7 text-ink-600">
@@ -792,7 +792,7 @@ export default function GoalsPageClient() {
               </div>
 
               {isLoading ? (
-                <div className="surface-panel p-8 text-sm text-ink-600">
+                <div className="surface-panel p-6 sm:p-8 text-sm text-ink-600">
                   Loading testimonials...
                 </div>
               ) : testimonials.length > 0 ? (
@@ -831,11 +831,11 @@ export default function GoalsPageClient() {
                   ))}
                 </div>
               ) : (
-                <div className="surface-panel p-8">
+                <div className="surface-panel p-6 sm:p-8">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-500">
                     No testimonials yet
                   </p>
-                  <h3 className="mt-4 font-display text-3xl font-semibold tracking-[-0.04em] text-ink-900">
+                  <h3 className="mt-4 font-display text-[2rem] font-semibold tracking-[-0.035em] text-ink-900 sm:text-3xl sm:tracking-[-0.04em]">
                     Add the first testimonial and it will be ready for the public stories section.
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-ink-600">

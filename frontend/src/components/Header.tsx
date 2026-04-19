@@ -44,14 +44,18 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/50 bg-cream-50/80 backdrop-blur-xl">
-      <div className="container-custom flex h-20 items-center justify-between gap-4">
-        <Link href="/#top" className="flex items-center gap-3" onClick={handleBrandClick}>
+      <div className="container-custom flex min-h-[4.5rem] items-center justify-between gap-3 py-3 sm:h-20 sm:py-0">
+        <Link
+          href="/#top"
+          className="flex min-w-0 items-center gap-3"
+          onClick={handleBrandClick}
+        >
           <BrandLogo size="sm" className="shadow-soft" />
-          <div>
-            <p className="font-display text-2xl font-semibold leading-none text-ink-900">
+          <div className="min-w-0">
+            <p className="truncate font-display text-lg font-semibold leading-none text-ink-900 sm:text-2xl">
               Kaare Khair o Barr
             </p>
-            <p className="mt-1 text-xs uppercase tracking-[0.22em] text-ink-500">
+            <p className="mt-1 hidden text-[0.68rem] uppercase tracking-[0.18em] text-ink-500 sm:block sm:text-xs sm:tracking-[0.22em]">
               {BRAND_SHORT_CONTEXT}
             </p>
           </div>
@@ -79,7 +83,7 @@ export default function Header() {
         </div>
 
         <button
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink-900/10 bg-white/80 text-ink-900 lg:hidden"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink-900/10 bg-white/80 text-ink-900 sm:h-11 sm:w-11 lg:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         >

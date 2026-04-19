@@ -16,7 +16,7 @@ function formatEventDate(value: string) {
 
 export default function EventTimelineCard({ event }: EventTimelineCardProps) {
   return (
-    <article className="surface-panel p-6 transition duration-300 hover:-translate-y-1">
+    <article className="surface-panel p-5 sm:p-6 transition duration-300 hover:-translate-y-1">
       <div className="flex flex-wrap items-center gap-3">
         <span className="rounded-full bg-forest-50 px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-forest-700">
           {event.category}
@@ -32,7 +32,7 @@ export default function EventTimelineCard({ event }: EventTimelineCardProps) {
         </span>
       </div>
 
-      <h3 className="mt-5 font-display text-3xl font-semibold tracking-[-0.03em] text-ink-900">
+      <h3 className="mt-5 font-display text-[2rem] font-semibold tracking-[-0.03em] text-ink-900 sm:text-3xl">
         {event.title}
       </h3>
       <p className="mt-3 text-sm leading-7 text-ink-600">{event.description}</p>
