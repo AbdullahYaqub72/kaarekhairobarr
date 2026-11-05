@@ -1,14 +1,17 @@
 .DS_Store
 
-# Frontend dependencies and build output
-frontend/node_modules/
-frontend/.next/
-frontend/.next_backup_*/
-frontend/tsconfig.tsbuildinfo
+# Dependencies and build output
+node_modules/
+.next/
+.next_backup_*/
+out/
+*.tsbuildinfo
 
-# Frontend local environment
-frontend/.env.local
-frontend/.env*.local
+# Local environment
+.env*.local
+
+# Firebase CLI
+.firebase/
 
 # Logs
 *.log
