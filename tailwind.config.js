@@ -1,94 +1,81 @@
 /** @type {import('tailwindcss').Config} */
+// Brand tokens: see CLAUDE.md > Brand & theme.
+// Every colour is a CSS variable (RGB channels) defined in src/app/globals.css,
+// with a light set on :root and a dark set under prefers-color-scheme: dark.
+// So components use the same class names in both themes; never use raw hex.
+const v = (name) => `rgb(var(--${name}) / <alpha-value>)`
+
+const colors = {
+  navy: {
+    DEFAULT: v('navy'), // brand bands, primary buttons, filled chips
+    light: v('navy-light'),
+    deep: v('navy-deep'),
+    50: v('navy-50'), // soft tint (hover, selected rows)
+    100: v('navy-100'), // tinted borders
+  },
+  gold: {
+    DEFAULT: '#c9a84c', // same in both themes; decoration, or text on navy
+    dark: v('gold-dark'), // gold-coloured text on surfaces
+    soft: v('gold-soft'),
+  },
+  ink: { DEFAULT: v('ink'), soft: v('ink-soft') },
+  muted: v('muted'),
+  page: v('page'),
+  surface: v('surface'),
+  panel: v('panel'),
+  line: v('line'),
+  callout: v('callout'),
+  onnavy: '#cdd6ea',
+  // ink = text on the whatsapp-bg tint (themed); on = text on the bright green (fixed).
+  whatsapp: { DEFAULT: '#25d366', bg: v('whatsapp-bg'), ink: v('whatsapp-ink'), on: '#0a3d20' },
+  success: { DEFAULT: v('success'), bg: v('success-bg') },
+  warning: { DEFAULT: v('warning'), bg: v('warning-bg') },
+  danger: { DEFAULT: v('danger'), bg: v('danger-bg') },
+}
+
+// As text, border, ring or outline, "navy" means "brand ink on the page": dark
+// navy in light mode, light blue-white in dark mode. As a background it stays
+// the brand navy. `text-navy-deep` is the fixed dark navy for text on gold or white.
+const navyInk = {
+  DEFAULT: v('navy-ink'),
+  light: v('navy-ink-light'),
+  deep: '#0b2050',
+  50: v('navy-50'),
+  100: v('navy-100'),
+}
+
 module.exports = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
-      colors: {
-        cream: {
-          50: '#fdf9f2',
-          100: '#f7efe2',
-          200: '#edd8b6',
-          300: '#e2c08a',
-          400: '#d4a562',
-          500: '#c48940',
-          600: '#9d692f',
-          700: '#734b24',
-          800: '#5c3c22',
-          900: '#4d331f',
-        },
-        forest: {
-          50: '#eef7f1',
-          100: '#d4eadb',
-          200: '#aad5ba',
-          300: '#7ec094',
-          400: '#4da86d',
-          500: '#2c8b51',
-          600: '#21693d',
-          700: '#1a5131',
-          800: '#173f28',
-          900: '#143321',
-          950: '#091b11',
-        },
-        clay: {
-          50: '#fdf1ea',
-          100: '#f8dccb',
-          200: '#f2ba9b',
-          300: '#eb946a',
-          400: '#de7045',
-          500: '#c85631',
-          600: '#a34327',
-          700: '#7c321f',
-          800: '#652b1e',
-          900: '#53261c',
-        },
-        ink: {
-          50: '#e9efee',
-          100: '#cdd9d7',
-          200: '#a2b6b2',
-          300: '#768f8a',
-          400: '#54706b',
-          500: '#39524e',
-          600: '#243733',
-          700: '#1d2c29',
-          800: '#15211e',
-          900: '#0f1917',
-          950: '#08100f',
-        },
-      },
+      colors,
+      textColor: { navy: navyInk },
+      borderColor: { navy: navyInk },
+      ringColor: { navy: navyInk },
+      outlineColor: { navy: navyInk },
       fontFamily: {
-        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-display)', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)', 'system-ui', '-apple-system', 'Segoe UI', 'Arial', 'sans-serif'],
+        urdu: ['"Noto Nastaliq Urdu"', '"Jameel Noori Nastaleeq"', '"Noto Naskh Arabic"', 'serif'],
       },
-      backgroundImage: {
-        'mesh-radial':
-          'radial-gradient(circle at top left, rgba(212, 165, 98, 0.25), transparent 45%), radial-gradient(circle at 80% 10%, rgba(44, 139, 81, 0.18), transparent 30%), linear-gradient(135deg, rgba(253, 249, 242, 0.98), rgba(247, 239, 226, 0.96))',
+      borderRadius: {
+        card: '10px',
+        control: '8px',
       },
       boxShadow: {
-        soft: '0 18px 40px -28px rgba(15, 25, 23, 0.35)',
-        'card-glow': '0 30px 70px -35px rgba(16, 31, 24, 0.45)',
+        card: 'var(--shadow-card)',
+        raised: 'var(--shadow-raised)',
+        bar: 'var(--shadow-bar)',
       },
       keyframes: {
-        fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(24px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        floatSlow: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
-        pulseSoft: {
-          '0%, 100%': { opacity: '0.82' },
-          '50%': { opacity: '1' },
+        'fade-in': { from: { opacity: '0' }, to: { opacity: '1' } },
+        'slide-up': {
+          from: { opacity: '0', transform: 'translateY(16px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
         },
       },
       animation: {
-        'fade-up': 'fadeUp 0.8s ease-out both',
-        'float-slow': 'floatSlow 7s ease-in-out infinite',
-        'pulse-soft': 'pulseSoft 4s ease-in-out infinite',
+        'fade-in': 'fade-in 150ms ease-out',
+        'slide-up': 'slide-up 220ms cubic-bezier(0.2, 0.8, 0.2, 1)',
       },
     },
   },

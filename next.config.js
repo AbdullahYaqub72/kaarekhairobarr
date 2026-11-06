@@ -1,21 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-      },
-      {
-        protocol: 'http',
-        hostname: '127.0.0.1',
-      },
-      {
-        protocol: 'https',
-        hostname: '*.kaarekhair.com',
-      },
-    ],
+  reactStrictMode: true,
+  poweredByHeader: false,
+  experimental: {
+    // firebase-admin must run as a normal Node module, not be bundled.
+    serverComponentsExternalPackages: ['firebase-admin'],
   },
 }
 

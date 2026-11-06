@@ -1,29 +1,13 @@
 rules_version = '2';
 
+// The app never reads or writes Firestore from the browser.
+// All data access goes through the Next.js API routes, which use the
+// Firebase Admin SDK (it bypasses these rules) and enforce permissions
+// on the server. See docs/roles-and-workflows.md §10.
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /siteContent/{document=**} {
-      allow read, write: if true;
-    }
-
-    match /campaigns/{document=**} {
-      allow read, write: if true;
-    }
-
-    match /events/{document=**} {
-      allow read, write: if true;
-    }
-
-    match /testimonials/{document=**} {
-      allow read, write: if true;
-    }
-
-    match /monthlyGoals/{document=**} {
-      allow read, write: if true;
-    }
-
-    match /supportRequests/{document=**} {
-      allow read, write: if true;
+    match /{document=**} {
+      allow read, write: if false;
     }
   }
 }

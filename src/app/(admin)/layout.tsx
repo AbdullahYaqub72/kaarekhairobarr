@@ -1,15 +1,11 @@
-import type { ReactNode } from 'react'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
+import { AdminShell } from '@/components/layout/AdminShell'
+import { Gate } from '@/features/auth/Gate'
 
-// Admin pages target tablet/laptop. Same chrome as public pages for now;
-// this layout is where an admin-specific shell will go.
-export default function AdminLayout({ children }: { children: ReactNode }) {
+// Admin area: built for tablets and laptops, must still work on a phone.
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <Header />
-      <main className="min-h-screen">{children}</main>
-      <Footer />
-    </>
+    <Gate mode="admin">
+      <AdminShell>{children}</AdminShell>
+    </Gate>
   )
 }

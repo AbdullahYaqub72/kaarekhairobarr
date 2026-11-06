@@ -2,121 +2,137 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme tokens (RGB channels, used by tailwind.config.js). The app follows the
+   phone/computer's light or dark setting. Contrast targets: body text >= 7:1,
+   muted text and links >= 4.5:1 on surface, in both themes. */
 :root {
   color-scheme: light;
-  --font-sans: "Avenir Next", "Optima", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Baskerville", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-  --font-urdu: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Geeza Pro", serif;
+
+  --navy: 15 42 94; /* #0f2a5e */
+  --navy-light: 26 61 143; /* #1a3d8f */
+  --navy-deep: 11 32 80; /* #0b2050 */
+  --navy-50: 233 238 248;
+  --navy-100: 211 221 240;
+  --navy-ink: 15 42 94; /* headings & brand text */
+  --navy-ink-light: 26 61 143; /* links */
+
+  --gold-dark: 138 109 31; /* #8a6d1f */
+  --gold-soft: 247 240 220;
+
+  --ink: 43 43 43;
+  --ink-soft: 58 58 58;
+  --muted: 102 102 102;
+  --page: 238 241 246;
+  --surface: 255 255 255;
+  --panel: 250 251 253;
+  --line: 236 239 244;
+  --callout: 244 246 250;
+
+  --whatsapp-bg: 242 251 245;
+  --whatsapp-ink: 10 61 32;
+  --success: 30 123 69;
+  --success-bg: 235 247 240;
+  --warning: 138 90 0;
+  --warning-bg: 255 246 224;
+  --danger: 180 35 24;
+  --danger-bg: 253 238 236;
+
+  --shadow-card: 0 6px 24px rgb(15 42 94 / 0.1);
+  --shadow-raised: 0 12px 40px rgb(15 42 94 / 0.18);
+  --shadow-bar: 0 -4px 20px rgb(15 42 94 / 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --navy: 28 58 122; /* #1c3a7a: a touch brighter so bands and buttons stand off the dark page */
+    --navy-light: 42 80 158;
+    --navy-deep: 12 26 56;
+    --navy-50: 28 42 72;
+    --navy-100: 48 66 104;
+    --navy-ink: 226 232 245; /* #e2e8f5 */
+    --navy-ink-light: 143 176 255; /* #8fb0ff */
+
+    --gold-dark: 221 190 106; /* #ddbe6a: gold text reads well on dark */
+    --gold-soft: 52 44 20;
+
+    --ink: 230 233 240;
+    --ink-soft: 200 207 222;
+    --muted: 160 170 192;
+    --page: 7 14 28; /* #070e1c */
+    --surface: 17 28 51; /* #111c33 */
+    --panel: 21 33 58;
+    --line: 37 52 84;
+    --callout: 24 39 70;
+
+    --whatsapp-bg: 14 42 28;
+    --whatsapp-ink: 134 226 168;
+    --success: 92 201 138;
+    --success-bg: 16 48 32;
+    --warning: 240 185 80;
+    --warning-bg: 52 39 10;
+    --danger: 248 125 112;
+    --danger-bg: 60 22 20;
+
+    /* Shadows barely show on dark, so cards get a faint outline as well. */
+    --shadow-card: 0 0 0 1px rgb(255 255 255 / 0.06), 0 6px 24px rgb(0 0 0 / 0.35);
+    --shadow-raised: 0 0 0 1px rgb(255 255 255 / 0.08), 0 12px 40px rgb(0 0 0 / 0.5);
+    --shadow-bar: 0 -1px 0 rgb(255 255 255 / 0.06), 0 -4px 20px rgb(0 0 0 / 0.3);
+  }
 }
 
 @layer base {
-  * {
-    @apply border-ink-100;
-  }
-
   html {
-    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    @apply bg-cream-50 font-sans text-ink-900 antialiased;
-    min-height: 100vh;
-    line-height: 1.55;
-    background-image:
-      radial-gradient(circle at top left, rgba(212, 165, 98, 0.26), transparent 38%),
-      radial-gradient(circle at 85% 0%, rgba(44, 139, 81, 0.18), transparent 26%),
-      linear-gradient(180deg, #fffdf9 0%, #fdf9f2 42%, #f6efe4 100%);
+    @apply min-h-screen bg-page font-sans text-base leading-relaxed text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-bold leading-tight;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-navy-light;
   }
 
   ::selection {
-    background: rgba(212, 165, 98, 0.55);
-    color: #0f1917;
-  }
-
-  a {
-    @apply transition-colors duration-300;
+    background: rgba(201, 168, 76, 0.4);
   }
 }
 
-@layer components {
-  .container-custom {
-    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+@layer utilities {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-[0.92rem] font-semibold transition duration-300 sm:px-5 sm:py-3 sm:text-sm;
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
   }
 
-  .btn-primary {
-    @apply btn bg-ink-900 text-cream-50 shadow-soft hover:-translate-y-0.5 hover:bg-forest-700;
+  .scrollbar-none {
+    scrollbar-width: none;
   }
 
-  .btn-secondary {
-    @apply btn bg-cream-100 text-ink-900 hover:-translate-y-0.5 hover:bg-white;
-    box-shadow: inset 0 0 0 1px rgb(15 25 23 / 0.1);
-  }
-
-  .btn-outline {
-    @apply btn border text-ink-900 backdrop-blur hover:bg-white;
-    border-color: rgb(15 25 23 / 0.15);
-    background-color: rgb(255 255 255 / 0.7);
-  }
-
-  .surface-panel {
-    @apply rounded-[24px] border shadow-card-glow backdrop-blur-xl sm:rounded-[28px];
-    border-color: rgb(255 255 255 / 0.65);
-    background-color: rgb(255 255 255 / 0.72);
-  }
-
-  .section-shell {
-    @apply py-10 sm:py-20;
-  }
-
-  .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full bg-forest-50 px-3 py-1 text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-forest-700 sm:text-[0.72rem] sm:tracking-[0.24em];
-  }
-
-  .label {
-    @apply mb-2 block text-sm font-semibold text-ink-800;
-  }
-
-  .field {
-    @apply w-full rounded-3xl border bg-white px-4 py-3 text-[0.95rem] text-ink-900 outline-none transition focus:border-forest-500 focus:ring-4 focus:ring-forest-100 sm:text-sm;
-    border-color: rgb(15 25 23 / 0.1);
-  }
-
-  .soft-divider {
-    @apply border-t;
-    border-color: rgb(15 25 23 / 0.08);
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 }
 
-.urdu-display {
-  font-family: var(--font-urdu);
-  direction: rtl;
-}
-
-.btn-outline:hover {
-  border-color: rgb(33 105 61 / 0.3);
-}
-
-.field::placeholder {
-  color: rgb(57 82 78 / 0.7);
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f7efe2;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #d4a562;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #c48940;
+/* Respect "reduce motion": no entrance animations at all, so content never
+   depends on an animation finishing to become visible. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
 }
